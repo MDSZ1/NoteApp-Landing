@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+//Fonts
+$font-montserrat: "Montserrat", sans-serif;
+$font-source: "Source Sans Pro", sans-serif;
+
+//Colores Material palette generator
+$triadic-lv: #48b4e2;
+$white-c: #fcfcfc;
+$black-c: #222;
+
+//Paddings y Margins
+$padding-rl: 0 1em;
+$padding-top: 1.2em;
+
+//Containers
+$side-width: 90%;
+$fix-sw: 0 auto;
+$mw-height: 614px;
+$tu-height: 500px;
+$imgd-height: 530px;
+
+//Buttons
+$padding-btn: 1.4em;
+$br-btn: 6px;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: $white-c;
+}
+
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: $side-width;
+  margin: $fix-sw;
+
+  .sidebar {
+    display: flex;
+  }
+
+  #toggle {
+    display: none;
+  }
+
+  h1 {
+    font-family: $font-montserrat;
+    font-weight: 700;
+    color: $black-c;
+    font-size: 1.6rem;
+  }
+
+  span {
+    color: $triadic-lv;
+  }
+}
+.tab {
+  list-style: none;
+  align-items: center;
+
+  & .menu {
+    font-family: $font-source;
+    font-weight: 700;
+    color: $black-c;
+    padding: $padding-rl;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+}
+
+.m-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: $side-width;
+  margin: $fix-sw;
+  padding: 4em 0 0 0;
+
+  & .wc-title {
+    flex: 1;
+
+    & .m-title {
+      color: $black-c;
+      font-family: $font-montserrat;
+      font-weight: 700;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    & .m-subtitle {
+      color: $black-c;
+      font-size: 1rem;
+      font-family: $font-source;
+      line-height: 1;
+      margin: 0;
+    }
+  }
+
+  & .btn-wrapper {
+    display: flex;
+    padding-top: 0.9em;
+    justify-content: flex-start;
+
+    & .sign-in {
+      font-size: 1rem;
+      color: $white-c;
+      font-weight: bold;
+      background-color: $triadic-lv;
+      border: none;
+      border-radius: $br-btn;
+      padding: $padding-btn;
+      text-transform: uppercase;
+      width: 200px;
+      cursor: pointer;
+    }
+
+    & .sign-in:hover {
+      opacity: 0.9;
+    }
+  }
+
+  & .wc-img {
+    flex: 2;
+
+    img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .m-wrapper {
+    .wc-title {
+      .m-title {
+        font-size: 2.5rem;
+      }
+
+      .m-subtitle {
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+    }
+
+    .btn-wrapper {
+      padding-top: 0.5em;
+
+      .sign-in {
+        font-size: 1rem;
+        border-radius: $br-btn;
+        padding: 1.1em;
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-wrapper {
+    .menu {
+      padding: 0 0.7em;
+    }
+  }
+
+  .m-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0 0 0;
+
+    .wc-title {
+      padding: 4em 0;
+
+      .m-title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 2.5rem;
+      }
+
+      .m-subtitle {
+        text-align: center;
+        font-size: 1rem;
+      }
+    }
+
+    .btn-wrapper {
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar-wrapper {
+    #toggle {
+      display: block;
+      font-size: 1.6rem;
+    }
+
+    .sidebar {
+      overflow-x: hidden;
+    }
+
+    .sidebar {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $white-c;
+      right: 0;
+      height: 92vh;
+      top: 8vh;
+      width: 50%;
+      transform: translateX(100%);
+      transition: transform 0.5s;
+    }
+
+    .sidebar-active {
+      transform: translateX(0%);
+    }
+  }
+
+  .tab {
+    padding: 1.2rem 0;
+  }
+
+  .m-wrapper {
+    .wc-title {
+      .m-title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.9rem;
+      }
+
+      .m-subtitle {
+        text-align: center;
+        font-size: 1rem;
+      }
+    }
+
+    .btn-wrapper {
+      justify-content: center;
+    }
+  }
+}
